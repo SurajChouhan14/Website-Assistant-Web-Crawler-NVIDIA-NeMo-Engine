@@ -1,0 +1,1202 @@
+[
+  {
+    "sample_id": 1,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Basel III Capital Adequacy & CET1 Buffer",
+    "question": "What are the core regulatory capital requirements mandated by the Basel III framework?",
+    "contexts": [
+      "Basel III mandates that commercial banks hold a minimum Common Equity Tier 1 (CET1) ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets (RWA), augmented by a 2.5% Capital Conservation Buffer to absorb economic downturn shocks."
+    ],
+    "ground_truth": "Basel III requires a minimum CET1 ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets, with an additional 2.5% Capital Conservation Buffer.",
+    "answer": "Under Basel III regulatory rules, commercial banks must maintain a minimum 4.5% Common Equity Tier 1 (CET1) ratio and an 8.0% Total Capital Ratio against Risk-Weighted Assets (RWA), with an added 2.5% Capital Conservation Buffer.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 2,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Expected Shortfall vs Value-at-Risk",
+    "question": "Why does Expected Shortfall satisfy coherence axioms while Value-at-Risk fails?",
+    "contexts": [
+      "Value-at-Risk (VaR) measures the quantile threshold for losses but violates the subadditivity axiom for non-elliptical distributions. In contrast, Expected Shortfall (Conditional VaR) calculates the conditional expectation of losses exceeding VaR, ensuring convexity and subadditivity."
+    ],
+    "ground_truth": "Expected Shortfall is a coherent risk measure because it is subadditive and convex, measuring average tail losses beyond VaR, whereas VaR violates subadditivity.",
+    "answer": "Expected Shortfall (Conditional VaR) satisfies coherence because it calculates the conditional expectation of losses exceeding VaR, ensuring subadditivity and convexity, whereas Value-at-Risk (VaR) violates subadditivity for non-elliptical distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 3,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Merton Structural Model & Distance to Default",
+    "question": "How does the Merton structural model formulate corporate default risk using option theory?",
+    "contexts": [
+      "The Merton model views equity as a European call option on the firm's total asset value with a strike equal to the face value of debt liabilities maturing at time T. Distance to default is computed via Black-Scholes asset volatility and default threshold."
+    ],
+    "ground_truth": "Merton models equity as a call option on total assets with strike price equal to debt nominal value, deriving distance to default from asset volatility.",
+    "answer": "The Merton structural model treats equity as a European call option on total asset value with strike equal to debt liabilities at maturity T, computing distance to default from asset volatility and Black-Scholes dynamics.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 4,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "GARCH(1,1) Volatility Forecasting",
+    "question": "What is the mathematical structure of the conditional variance equation in a GARCH(1,1) model?",
+    "contexts": [
+      "In GARCH(1,1), conditional variance sigma_t^2 is modeled as omega + alpha * epsilon_{t-1}^2 + beta * sigma_{t-1}^2, where alpha measures the ARCH shock effect and beta measures variance persistence, requiring alpha + beta < 1 for stationarity."
+    ],
+    "ground_truth": "The GARCH(1,1) conditional variance is omega plus alpha times lagged squared shock plus beta times lagged variance, requiring alpha + beta < 1 for covariance stationarity.",
+    "answer": "The GARCH(1,1) conditional variance equation combines baseline variance omega, lagged innovation shock alpha * epsilon_{t-1}^2, and lagged variance persistence beta * sigma_{t-1}^2 with constraint alpha + beta < 1.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 5,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Black-Scholes Delta & Gamma Hedging",
+    "question": "How do Delta and Gamma sensitivities guide dynamic option hedging strategies?",
+    "contexts": [
+      "Delta measures the first-order rate of change of option price with respect to underlying asset spot price, while Gamma measures the second derivative (Delta curvature), indicating how frequently delta-hedges must be rebalanced."
+    ],
+    "ground_truth": "Delta hedging offsets directional spot price risk, while Gamma measures Delta sensitivity to price movements, determining the rebalancing frequency required to maintain delta neutrality.",
+    "answer": "Delta measures the first derivative of option price with respect to spot price for directional hedging, while Gamma measures the second derivative (Delta curvature) to determine hedge rebalancing frequency.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 6,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "RAGAs Triad Quality Metrics",
+    "question": "What three core dimensions comprise the RAGAs evaluation triad for LLM retrieval pipelines?",
+    "contexts": [
+      "The RAGAs evaluation suite evaluates the RAG Triad: Faithfulness (measuring whether generated claims are grounded in context), Answer Relevance (query-response cosine similarity), and Context Recall (ground truth coverage)."
+    ],
+    "ground_truth": "The RAGAs Triad consists of Faithfulness (factual grounding in context), Answer Relevance (query alignment), and Context Recall (capture of ground truth facts).",
+    "answer": "The RAGAs evaluation framework assesses the RAG Triad: Faithfulness (verifying answers are grounded in context), Answer Relevance (measuring query-response cosine alignment), and Context Recall (measuring ground truth factual coverage).",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 7,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Reciprocal Rank Fusion (RRF)",
+    "question": "How does Reciprocal Rank Fusion combine rankings from sparse and dense search channels?",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) sums reciprocal ranks across retrieval methods: RRF(d) = sum_m [w_m / (k + rank_m(d))], using a smoothing constant k (typically 60) to merge BM25 and dense embedding lists robustly."
+    ],
+    "ground_truth": "RRF combines heterogeneous search ranks by summing weighted reciprocal ranks w_m / (k + rank_m(d)) with smoothing constant k=60.",
+    "answer": "Reciprocal Rank Fusion (RRF) combines sparse BM25 and dense vector rankings by summing weighted reciprocal ranks w_m / (k + rank_m(d)) using smoothing constant k=60 to avoid top-rank skew.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 8,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "HNSW Graph Indexing",
+    "question": "Why does Hierarchical Navigable Small World (HNSW) achieve sub-linear approximate nearest neighbor search?",
+    "contexts": [
+      "HNSW constructs a multi-layer graph where upper layers have long-range skip links and the bottom layer contains dense local links, enabling logarithmic O(log N) search complexity over vector embeddings."
+    ],
+    "ground_truth": "HNSW achieves O(log N) search by using a hierarchical skip-list multi-layer graph with coarse long-range navigation at the top and dense local exploration at the bottom.",
+    "answer": "HNSW achieves logarithmic O(log N) vector search complexity by building a multi-layer graph where upper layers provide long-range skip navigation and the bottom layer contains dense local connections.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 9,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Speculative Decoding",
+    "question": "How does speculative decoding accelerate LLM token inference without degrading output quality?",
+    "contexts": [
+      "Speculative decoding uses a small draft model to generate K candidate tokens in parallel, which are verified by the large target model in a single forward pass via rejection sampling, preserving target probability distributions."
+    ],
+    "ground_truth": "A small draft model proposes K candidate tokens that a large target model validates in one forward pass using modified rejection sampling, preserving exact output distribution.",
+    "answer": "Speculative decoding uses a fast draft model to generate K candidate tokens in parallel, which the large target model validates in a single forward pass using rejection sampling while preserving exact probability distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 10,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "PagedAttention & KV Cache Memory",
+    "question": "How does PagedAttention solve KV cache memory fragmentation in vLLM serving?",
+    "contexts": [
+      "PagedAttention partitions the continuous KV cache into fixed-size physical memory blocks similar to OS virtual memory paging, eliminating internal fragmentation and enabling dynamic memory sharing."
+    ],
+    "ground_truth": "PagedAttention divides transformer KV cache memory into non-contiguous physical pages, eliminating memory waste and enabling dynamic prefix sharing.",
+    "answer": "PagedAttention partitions the transformer KV cache into fixed-size physical memory blocks inspired by OS virtual memory paging, eliminating memory fragmentation and enabling dynamic memory sharing in vLLM.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 11,
+    "domain": "Operations Research & Optimization",
+    "topic": "Mixed-Integer Linear Programming & Branch-and-Cut",
+    "question": "How do Branch-and-Cut algorithms solve mixed-integer linear programming problems to global optimality?",
+    "contexts": [
+      "Branch-and-Cut integrates linear programming relaxations with cutting planes (Gomory cuts) to tighten bounds, combined with branch-and-bound tree partitioning to prove global optimality within an optimality tolerance gap."
+    ],
+    "ground_truth": "Branch-and-Cut solves MILPs by solving continuous LP relaxations, adding cutting planes to remove non-integer fractional solutions, and systematically branching on integer variables.",
+    "answer": "Branch-and-Cut solves MILPs by combining continuous LP relaxations, generating cutting planes (Gomory cuts) to tighten bounds, and exploring branch-and-bound trees to prove global optimality.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 12,
+    "domain": "Operations Research & Optimization",
+    "topic": "Simplex Duality & Shadow Prices",
+    "question": "What economic interpretation do dual variables (shadow prices) provide in linear programming?",
+    "contexts": [
+      "In linear programming, dual variables represent shadow prices, quantifying the marginal increase in optimal objective value obtained by relaxing a binding resource constraint by one unit."
+    ],
+    "ground_truth": "Dual decision variables represent shadow prices, indicating the marginal economic value of relaxing a primal resource constraint by one unit.",
+    "answer": "Dual variables in linear programming represent shadow prices that quantify the marginal rate of increase in optimal objective value when a binding resource constraint is relaxed by one unit.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 13,
+    "domain": "Operations Research & Optimization",
+    "topic": "Stochastic Inventory (s, S) Replenishment Policies",
+    "question": "Under what conditions is an (s, S) policy optimal for stochastic inventory control?",
+    "contexts": [
+      "Under fixed ordering costs and stochastic customer demand, an (s, S) policy is optimal: when inventory falls to or below reorder point s, an order is placed to restore stock to base level S."
+    ],
+    "ground_truth": "An (s, S) policy is optimal under stochastic demand and fixed setup costs, placing an order up to level S whenever inventory drops below reorder point s.",
+    "answer": "An (s, S) replenishment policy is optimal under stochastic customer demand and fixed ordering costs, placing an order to restore stock up to base level S whenever inventory falls to or below reorder point s.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 14,
+    "domain": "Operations Research & Optimization",
+    "topic": "Markov Decision Processes & Bellman Optimality",
+    "question": "How does the Bellman optimality equation characterize the value function in an MDP?",
+    "contexts": [
+      "The Bellman Optimality Equation defines V*(s) = max_a [ R(s, a) + gamma * sum_{s'} P(s'|s, a) * V*(s') ], decomposing optimal sequential decision-making into immediate reward plus discounted future value."
+    ],
+    "ground_truth": "The Bellman optimality equation expresses the value of a state as the maximum expected immediate reward plus the discounted expected value of the next state.",
+    "answer": "The Bellman Optimality Equation defines V*(s) as the maximum expected immediate reward R(s, a) plus the discounted expected future state value gamma * sum P(s'|s, a) * V*(s').",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 15,
+    "domain": "Operations Research & Optimization",
+    "topic": "Queuing Theory & M/M/c Erlang-C Sizing",
+    "question": "How is the Erlang-C formula used to size multiserver capacity in service systems?",
+    "contexts": [
+      "The Erlang-C formula calculates the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal determination of server count c."
+    ],
+    "ground_truth": "The Erlang-C formula computes the queuing probability in an M/M/c system to determine the minimum number of servers c required to satisfy service-level target waiting times.",
+    "answer": "The Erlang-C formula computes the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal capacity sizing of server count c.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 16,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "DuckDB Columnar Vectorized Execution",
+    "question": "How does DuckDB process analytical SQL queries over Parquet data with sub-second latency?",
+    "contexts": [
+      "DuckDB employs vectorized execution over 2048-tuple vector chunks using Morsel-driven parallelism and zero-copy Apache Arrow/Parquet integration, executing OLAP aggregations directly in CPU cache."
+    ],
+    "ground_truth": "DuckDB uses vectorized CPU processing in 2048-tuple Morsel chunks with zero-copy Parquet and Arrow integration to achieve low-latency analytical aggregations.",
+    "answer": "DuckDB executes analytical SQL queries by processing vectorized 2048-tuple morsels in CPU cache with zero-copy integration over columnar Apache Parquet and Apache Arrow datasets.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 17,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "LSM-Tree Storage Engine Architecture",
+    "question": "How do LSM-Trees provide high-throughput write performance in storage engines?",
+    "contexts": [
+      "LSM-Trees buffer writes in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk and using background compaction to merge levels and purge deleted keys."
+    ],
+    "ground_truth": "LSM-Trees optimize writes by appending to an in-memory MemTable and WAL, flushing sequential immutable SSTables to disk, and organizing data via multi-level compaction.",
+    "answer": "LSM-Trees achieve high write throughput by buffering mutations in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk with background multi-level compaction.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 18,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Raft Consensus vs Paxos",
+    "question": "What architectural advantages does the Raft consensus protocol offer over Multi-Paxos?",
+    "contexts": [
+      "Raft decomposes consensus into explicit subproblems: randomized leader election, strong leader log replication, and safety invariants, providing equivalent formal correctness to Paxos with superior understandability."
+    ],
+    "ground_truth": "Raft decomposes distributed consensus into leader election, log replication, and safety, making it significantly easier to understand and implement than Multi-Paxos.",
+    "answer": "Raft achieves the same formal consensus guarantees as Multi-Paxos but decomposes coordination into distinct subproblems: randomized leader election, append-only log replication, and safety invariants for higher understandability.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 19,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Kafka Exactly-Once Semantics (EOS)",
+    "question": "How does Apache Kafka guarantee exactly-once message processing across distributed partitions?",
+    "contexts": [
+      "Kafka achieves Exactly-Once Semantics (EOS) through idempotent producers with sequence number deduplication, transactional commit coordinators, and two-phase commits across topic partitions."
+    ],
+    "ground_truth": "Kafka guarantees EOS using sequence-deduplicated idempotent producers combined with atomic multi-partition transactional commit markers.",
+    "answer": "Apache Kafka achieves Exactly-Once Semantics (EOS) by combining idempotent producers with sequence number deduplication and transactional coordinators for atomic two-phase commit across topic partitions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 20,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Arrow Zero-Copy Shared Memory",
+    "question": "How does Apache Arrow eliminate serialization overhead between heterogeneous runtime environments?",
+    "contexts": [
+      "Apache Arrow defines a standardized columnar in-memory format with flat buffers, allowing shared-memory IPC transfers between Python, C++, and Rust without costly serialization or deserialization."
+    ],
+    "ground_truth": "Apache Arrow uses a language-independent columnar memory specification enabling zero-copy shared memory IPC across diverse programming runtimes.",
+    "answer": "Apache Arrow eliminates serialization overhead by defining a standardized columnar in-memory specification with flat buffers that enables zero-copy shared-memory IPC across Python, C++, and Rust.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 21,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Basel III Capital Adequacy & CET1 Buffer",
+    "question": "What are the core regulatory capital requirements mandated by the Basel III framework?",
+    "contexts": [
+      "Basel III mandates that commercial banks hold a minimum Common Equity Tier 1 (CET1) ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets (RWA), augmented by a 2.5% Capital Conservation Buffer to absorb economic downturn shocks."
+    ],
+    "ground_truth": "Basel III requires a minimum CET1 ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets, with an additional 2.5% Capital Conservation Buffer.",
+    "answer": "Under Basel III regulatory rules, commercial banks must maintain a minimum 4.5% Common Equity Tier 1 (CET1) ratio and an 8.0% Total Capital Ratio against Risk-Weighted Assets (RWA), with an added 2.5% Capital Conservation Buffer.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 22,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Expected Shortfall vs Value-at-Risk",
+    "question": "Why does Expected Shortfall satisfy coherence axioms while Value-at-Risk fails?",
+    "contexts": [
+      "Value-at-Risk (VaR) measures the quantile threshold for losses but violates the subadditivity axiom for non-elliptical distributions. In contrast, Expected Shortfall (Conditional VaR) calculates the conditional expectation of losses exceeding VaR, ensuring convexity and subadditivity."
+    ],
+    "ground_truth": "Expected Shortfall is a coherent risk measure because it is subadditive and convex, measuring average tail losses beyond VaR, whereas VaR violates subadditivity.",
+    "answer": "Expected Shortfall (Conditional VaR) satisfies coherence because it calculates the conditional expectation of losses exceeding VaR, ensuring subadditivity and convexity, whereas Value-at-Risk (VaR) violates subadditivity for non-elliptical distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 23,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Merton Structural Model & Distance to Default",
+    "question": "How does the Merton structural model formulate corporate default risk using option theory?",
+    "contexts": [
+      "The Merton model views equity as a European call option on the firm's total asset value with a strike equal to the face value of debt liabilities maturing at time T. Distance to default is computed via Black-Scholes asset volatility and default threshold."
+    ],
+    "ground_truth": "Merton models equity as a call option on total assets with strike price equal to debt nominal value, deriving distance to default from asset volatility.",
+    "answer": "The Merton structural model treats equity as a European call option on total asset value with strike equal to debt liabilities at maturity T, computing distance to default from asset volatility and Black-Scholes dynamics.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 24,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "GARCH(1,1) Volatility Forecasting",
+    "question": "What is the mathematical structure of the conditional variance equation in a GARCH(1,1) model?",
+    "contexts": [
+      "In GARCH(1,1), conditional variance sigma_t^2 is modeled as omega + alpha * epsilon_{t-1}^2 + beta * sigma_{t-1}^2, where alpha measures the ARCH shock effect and beta measures variance persistence, requiring alpha + beta < 1 for stationarity."
+    ],
+    "ground_truth": "The GARCH(1,1) conditional variance is omega plus alpha times lagged squared shock plus beta times lagged variance, requiring alpha + beta < 1 for covariance stationarity.",
+    "answer": "The GARCH(1,1) conditional variance equation combines baseline variance omega, lagged innovation shock alpha * epsilon_{t-1}^2, and lagged variance persistence beta * sigma_{t-1}^2 with constraint alpha + beta < 1.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 25,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Black-Scholes Delta & Gamma Hedging",
+    "question": "How do Delta and Gamma sensitivities guide dynamic option hedging strategies?",
+    "contexts": [
+      "Delta measures the first-order rate of change of option price with respect to underlying asset spot price, while Gamma measures the second derivative (Delta curvature), indicating how frequently delta-hedges must be rebalanced."
+    ],
+    "ground_truth": "Delta hedging offsets directional spot price risk, while Gamma measures Delta sensitivity to price movements, determining the rebalancing frequency required to maintain delta neutrality.",
+    "answer": "Delta measures the first derivative of option price with respect to spot price for directional hedging, while Gamma measures the second derivative (Delta curvature) to determine hedge rebalancing frequency.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 26,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "RAGAs Triad Quality Metrics",
+    "question": "What three core dimensions comprise the RAGAs evaluation triad for LLM retrieval pipelines?",
+    "contexts": [
+      "The RAGAs evaluation suite evaluates the RAG Triad: Faithfulness (measuring whether generated claims are grounded in context), Answer Relevance (query-response cosine similarity), and Context Recall (ground truth coverage)."
+    ],
+    "ground_truth": "The RAGAs Triad consists of Faithfulness (factual grounding in context), Answer Relevance (query alignment), and Context Recall (capture of ground truth facts).",
+    "answer": "The RAGAs evaluation framework assesses the RAG Triad: Faithfulness (verifying answers are grounded in context), Answer Relevance (measuring query-response cosine alignment), and Context Recall (measuring ground truth factual coverage).",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 27,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Reciprocal Rank Fusion (RRF)",
+    "question": "How does Reciprocal Rank Fusion combine rankings from sparse and dense search channels?",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) sums reciprocal ranks across retrieval methods: RRF(d) = sum_m [w_m / (k + rank_m(d))], using a smoothing constant k (typically 60) to merge BM25 and dense embedding lists robustly."
+    ],
+    "ground_truth": "RRF combines heterogeneous search ranks by summing weighted reciprocal ranks w_m / (k + rank_m(d)) with smoothing constant k=60.",
+    "answer": "Reciprocal Rank Fusion (RRF) combines sparse BM25 and dense vector rankings by summing weighted reciprocal ranks w_m / (k + rank_m(d)) using smoothing constant k=60 to avoid top-rank skew.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 28,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "HNSW Graph Indexing",
+    "question": "Why does Hierarchical Navigable Small World (HNSW) achieve sub-linear approximate nearest neighbor search?",
+    "contexts": [
+      "HNSW constructs a multi-layer graph where upper layers have long-range skip links and the bottom layer contains dense local links, enabling logarithmic O(log N) search complexity over vector embeddings."
+    ],
+    "ground_truth": "HNSW achieves O(log N) search by using a hierarchical skip-list multi-layer graph with coarse long-range navigation at the top and dense local exploration at the bottom.",
+    "answer": "HNSW achieves logarithmic O(log N) vector search complexity by building a multi-layer graph where upper layers provide long-range skip navigation and the bottom layer contains dense local connections.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 29,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Speculative Decoding",
+    "question": "How does speculative decoding accelerate LLM token inference without degrading output quality?",
+    "contexts": [
+      "Speculative decoding uses a small draft model to generate K candidate tokens in parallel, which are verified by the large target model in a single forward pass via rejection sampling, preserving target probability distributions."
+    ],
+    "ground_truth": "A small draft model proposes K candidate tokens that a large target model validates in one forward pass using modified rejection sampling, preserving exact output distribution.",
+    "answer": "Speculative decoding uses a fast draft model to generate K candidate tokens in parallel, which the large target model validates in a single forward pass using rejection sampling while preserving exact probability distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 30,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "PagedAttention & KV Cache Memory",
+    "question": "How does PagedAttention solve KV cache memory fragmentation in vLLM serving?",
+    "contexts": [
+      "PagedAttention partitions the continuous KV cache into fixed-size physical memory blocks similar to OS virtual memory paging, eliminating internal fragmentation and enabling dynamic memory sharing."
+    ],
+    "ground_truth": "PagedAttention divides transformer KV cache memory into non-contiguous physical pages, eliminating memory waste and enabling dynamic prefix sharing.",
+    "answer": "PagedAttention partitions the transformer KV cache into fixed-size physical memory blocks inspired by OS virtual memory paging, eliminating memory fragmentation and enabling dynamic memory sharing in vLLM.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 31,
+    "domain": "Operations Research & Optimization",
+    "topic": "Mixed-Integer Linear Programming & Branch-and-Cut",
+    "question": "How do Branch-and-Cut algorithms solve mixed-integer linear programming problems to global optimality?",
+    "contexts": [
+      "Branch-and-Cut integrates linear programming relaxations with cutting planes (Gomory cuts) to tighten bounds, combined with branch-and-bound tree partitioning to prove global optimality within an optimality tolerance gap."
+    ],
+    "ground_truth": "Branch-and-Cut solves MILPs by solving continuous LP relaxations, adding cutting planes to remove non-integer fractional solutions, and systematically branching on integer variables.",
+    "answer": "Branch-and-Cut solves MILPs by combining continuous LP relaxations, generating cutting planes (Gomory cuts) to tighten bounds, and exploring branch-and-bound trees to prove global optimality.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 32,
+    "domain": "Operations Research & Optimization",
+    "topic": "Simplex Duality & Shadow Prices",
+    "question": "What economic interpretation do dual variables (shadow prices) provide in linear programming?",
+    "contexts": [
+      "In linear programming, dual variables represent shadow prices, quantifying the marginal increase in optimal objective value obtained by relaxing a binding resource constraint by one unit."
+    ],
+    "ground_truth": "Dual decision variables represent shadow prices, indicating the marginal economic value of relaxing a primal resource constraint by one unit.",
+    "answer": "Dual variables in linear programming represent shadow prices that quantify the marginal rate of increase in optimal objective value when a binding resource constraint is relaxed by one unit.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 33,
+    "domain": "Operations Research & Optimization",
+    "topic": "Stochastic Inventory (s, S) Replenishment Policies",
+    "question": "Under what conditions is an (s, S) policy optimal for stochastic inventory control?",
+    "contexts": [
+      "Under fixed ordering costs and stochastic customer demand, an (s, S) policy is optimal: when inventory falls to or below reorder point s, an order is placed to restore stock to base level S."
+    ],
+    "ground_truth": "An (s, S) policy is optimal under stochastic demand and fixed setup costs, placing an order up to level S whenever inventory drops below reorder point s.",
+    "answer": "An (s, S) replenishment policy is optimal under stochastic customer demand and fixed ordering costs, placing an order to restore stock up to base level S whenever inventory falls to or below reorder point s.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 34,
+    "domain": "Operations Research & Optimization",
+    "topic": "Markov Decision Processes & Bellman Optimality",
+    "question": "How does the Bellman optimality equation characterize the value function in an MDP?",
+    "contexts": [
+      "The Bellman Optimality Equation defines V*(s) = max_a [ R(s, a) + gamma * sum_{s'} P(s'|s, a) * V*(s') ], decomposing optimal sequential decision-making into immediate reward plus discounted future value."
+    ],
+    "ground_truth": "The Bellman optimality equation expresses the value of a state as the maximum expected immediate reward plus the discounted expected value of the next state.",
+    "answer": "The Bellman Optimality Equation defines V*(s) as the maximum expected immediate reward R(s, a) plus the discounted expected future state value gamma * sum P(s'|s, a) * V*(s').",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 35,
+    "domain": "Operations Research & Optimization",
+    "topic": "Queuing Theory & M/M/c Erlang-C Sizing",
+    "question": "How is the Erlang-C formula used to size multiserver capacity in service systems?",
+    "contexts": [
+      "The Erlang-C formula calculates the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal determination of server count c."
+    ],
+    "ground_truth": "The Erlang-C formula computes the queuing probability in an M/M/c system to determine the minimum number of servers c required to satisfy service-level target waiting times.",
+    "answer": "The Erlang-C formula computes the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal capacity sizing of server count c.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 36,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "DuckDB Columnar Vectorized Execution",
+    "question": "How does DuckDB process analytical SQL queries over Parquet data with sub-second latency?",
+    "contexts": [
+      "DuckDB employs vectorized execution over 2048-tuple vector chunks using Morsel-driven parallelism and zero-copy Apache Arrow/Parquet integration, executing OLAP aggregations directly in CPU cache."
+    ],
+    "ground_truth": "DuckDB uses vectorized CPU processing in 2048-tuple Morsel chunks with zero-copy Parquet and Arrow integration to achieve low-latency analytical aggregations.",
+    "answer": "DuckDB executes analytical SQL queries by processing vectorized 2048-tuple morsels in CPU cache with zero-copy integration over columnar Apache Parquet and Apache Arrow datasets.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 37,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "LSM-Tree Storage Engine Architecture",
+    "question": "How do LSM-Trees provide high-throughput write performance in storage engines?",
+    "contexts": [
+      "LSM-Trees buffer writes in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk and using background compaction to merge levels and purge deleted keys."
+    ],
+    "ground_truth": "LSM-Trees optimize writes by appending to an in-memory MemTable and WAL, flushing sequential immutable SSTables to disk, and organizing data via multi-level compaction.",
+    "answer": "LSM-Trees achieve high write throughput by buffering mutations in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk with background multi-level compaction.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 38,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Raft Consensus vs Paxos",
+    "question": "What architectural advantages does the Raft consensus protocol offer over Multi-Paxos?",
+    "contexts": [
+      "Raft decomposes consensus into explicit subproblems: randomized leader election, strong leader log replication, and safety invariants, providing equivalent formal correctness to Paxos with superior understandability."
+    ],
+    "ground_truth": "Raft decomposes distributed consensus into leader election, log replication, and safety, making it significantly easier to understand and implement than Multi-Paxos.",
+    "answer": "Raft achieves the same formal consensus guarantees as Multi-Paxos but decomposes coordination into distinct subproblems: randomized leader election, append-only log replication, and safety invariants for higher understandability.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 39,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Kafka Exactly-Once Semantics (EOS)",
+    "question": "How does Apache Kafka guarantee exactly-once message processing across distributed partitions?",
+    "contexts": [
+      "Kafka achieves Exactly-Once Semantics (EOS) through idempotent producers with sequence number deduplication, transactional commit coordinators, and two-phase commits across topic partitions."
+    ],
+    "ground_truth": "Kafka guarantees EOS using sequence-deduplicated idempotent producers combined with atomic multi-partition transactional commit markers.",
+    "answer": "Apache Kafka achieves Exactly-Once Semantics (EOS) by combining idempotent producers with sequence number deduplication and transactional coordinators for atomic two-phase commit across topic partitions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 40,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Arrow Zero-Copy Shared Memory",
+    "question": "How does Apache Arrow eliminate serialization overhead between heterogeneous runtime environments?",
+    "contexts": [
+      "Apache Arrow defines a standardized columnar in-memory format with flat buffers, allowing shared-memory IPC transfers between Python, C++, and Rust without costly serialization or deserialization."
+    ],
+    "ground_truth": "Apache Arrow uses a language-independent columnar memory specification enabling zero-copy shared memory IPC across diverse programming runtimes.",
+    "answer": "Apache Arrow eliminates serialization overhead by defining a standardized columnar in-memory specification with flat buffers that enables zero-copy shared-memory IPC across Python, C++, and Rust.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 41,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Basel III Capital Adequacy & CET1 Buffer",
+    "question": "What are the core regulatory capital requirements mandated by the Basel III framework?",
+    "contexts": [
+      "Basel III mandates that commercial banks hold a minimum Common Equity Tier 1 (CET1) ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets (RWA), augmented by a 2.5% Capital Conservation Buffer to absorb economic downturn shocks."
+    ],
+    "ground_truth": "Basel III requires a minimum CET1 ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets, with an additional 2.5% Capital Conservation Buffer.",
+    "answer": "Under Basel III regulatory rules, commercial banks must maintain a minimum 4.5% Common Equity Tier 1 (CET1) ratio and an 8.0% Total Capital Ratio against Risk-Weighted Assets (RWA), with an added 2.5% Capital Conservation Buffer.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 42,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Expected Shortfall vs Value-at-Risk",
+    "question": "Why does Expected Shortfall satisfy coherence axioms while Value-at-Risk fails?",
+    "contexts": [
+      "Value-at-Risk (VaR) measures the quantile threshold for losses but violates the subadditivity axiom for non-elliptical distributions. In contrast, Expected Shortfall (Conditional VaR) calculates the conditional expectation of losses exceeding VaR, ensuring convexity and subadditivity."
+    ],
+    "ground_truth": "Expected Shortfall is a coherent risk measure because it is subadditive and convex, measuring average tail losses beyond VaR, whereas VaR violates subadditivity.",
+    "answer": "Expected Shortfall (Conditional VaR) satisfies coherence because it calculates the conditional expectation of losses exceeding VaR, ensuring subadditivity and convexity, whereas Value-at-Risk (VaR) violates subadditivity for non-elliptical distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 43,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Merton Structural Model & Distance to Default",
+    "question": "How does the Merton structural model formulate corporate default risk using option theory?",
+    "contexts": [
+      "The Merton model views equity as a European call option on the firm's total asset value with a strike equal to the face value of debt liabilities maturing at time T. Distance to default is computed via Black-Scholes asset volatility and default threshold."
+    ],
+    "ground_truth": "Merton models equity as a call option on total assets with strike price equal to debt nominal value, deriving distance to default from asset volatility.",
+    "answer": "The Merton structural model treats equity as a European call option on total asset value with strike equal to debt liabilities at maturity T, computing distance to default from asset volatility and Black-Scholes dynamics.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 44,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "GARCH(1,1) Volatility Forecasting",
+    "question": "What is the mathematical structure of the conditional variance equation in a GARCH(1,1) model?",
+    "contexts": [
+      "In GARCH(1,1), conditional variance sigma_t^2 is modeled as omega + alpha * epsilon_{t-1}^2 + beta * sigma_{t-1}^2, where alpha measures the ARCH shock effect and beta measures variance persistence, requiring alpha + beta < 1 for stationarity."
+    ],
+    "ground_truth": "The GARCH(1,1) conditional variance is omega plus alpha times lagged squared shock plus beta times lagged variance, requiring alpha + beta < 1 for covariance stationarity.",
+    "answer": "The GARCH(1,1) conditional variance equation combines baseline variance omega, lagged innovation shock alpha * epsilon_{t-1}^2, and lagged variance persistence beta * sigma_{t-1}^2 with constraint alpha + beta < 1.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 45,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Black-Scholes Delta & Gamma Hedging",
+    "question": "How do Delta and Gamma sensitivities guide dynamic option hedging strategies?",
+    "contexts": [
+      "Delta measures the first-order rate of change of option price with respect to underlying asset spot price, while Gamma measures the second derivative (Delta curvature), indicating how frequently delta-hedges must be rebalanced."
+    ],
+    "ground_truth": "Delta hedging offsets directional spot price risk, while Gamma measures Delta sensitivity to price movements, determining the rebalancing frequency required to maintain delta neutrality.",
+    "answer": "Delta measures the first derivative of option price with respect to spot price for directional hedging, while Gamma measures the second derivative (Delta curvature) to determine hedge rebalancing frequency.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 46,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "RAGAs Triad Quality Metrics",
+    "question": "What three core dimensions comprise the RAGAs evaluation triad for LLM retrieval pipelines?",
+    "contexts": [
+      "The RAGAs evaluation suite evaluates the RAG Triad: Faithfulness (measuring whether generated claims are grounded in context), Answer Relevance (query-response cosine similarity), and Context Recall (ground truth coverage)."
+    ],
+    "ground_truth": "The RAGAs Triad consists of Faithfulness (factual grounding in context), Answer Relevance (query alignment), and Context Recall (capture of ground truth facts).",
+    "answer": "The RAGAs evaluation framework assesses the RAG Triad: Faithfulness (verifying answers are grounded in context), Answer Relevance (measuring query-response cosine alignment), and Context Recall (measuring ground truth factual coverage).",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 47,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Reciprocal Rank Fusion (RRF)",
+    "question": "How does Reciprocal Rank Fusion combine rankings from sparse and dense search channels?",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) sums reciprocal ranks across retrieval methods: RRF(d) = sum_m [w_m / (k + rank_m(d))], using a smoothing constant k (typically 60) to merge BM25 and dense embedding lists robustly."
+    ],
+    "ground_truth": "RRF combines heterogeneous search ranks by summing weighted reciprocal ranks w_m / (k + rank_m(d)) with smoothing constant k=60.",
+    "answer": "Reciprocal Rank Fusion (RRF) combines sparse BM25 and dense vector rankings by summing weighted reciprocal ranks w_m / (k + rank_m(d)) using smoothing constant k=60 to avoid top-rank skew.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 48,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "HNSW Graph Indexing",
+    "question": "Why does Hierarchical Navigable Small World (HNSW) achieve sub-linear approximate nearest neighbor search?",
+    "contexts": [
+      "HNSW constructs a multi-layer graph where upper layers have long-range skip links and the bottom layer contains dense local links, enabling logarithmic O(log N) search complexity over vector embeddings."
+    ],
+    "ground_truth": "HNSW achieves O(log N) search by using a hierarchical skip-list multi-layer graph with coarse long-range navigation at the top and dense local exploration at the bottom.",
+    "answer": "HNSW achieves logarithmic O(log N) vector search complexity by building a multi-layer graph where upper layers provide long-range skip navigation and the bottom layer contains dense local connections.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 49,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Speculative Decoding",
+    "question": "How does speculative decoding accelerate LLM token inference without degrading output quality?",
+    "contexts": [
+      "Speculative decoding uses a small draft model to generate K candidate tokens in parallel, which are verified by the large target model in a single forward pass via rejection sampling, preserving target probability distributions."
+    ],
+    "ground_truth": "A small draft model proposes K candidate tokens that a large target model validates in one forward pass using modified rejection sampling, preserving exact output distribution.",
+    "answer": "Speculative decoding uses a fast draft model to generate K candidate tokens in parallel, which the large target model validates in a single forward pass using rejection sampling while preserving exact probability distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 50,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "PagedAttention & KV Cache Memory",
+    "question": "How does PagedAttention solve KV cache memory fragmentation in vLLM serving?",
+    "contexts": [
+      "PagedAttention partitions the continuous KV cache into fixed-size physical memory blocks similar to OS virtual memory paging, eliminating internal fragmentation and enabling dynamic memory sharing."
+    ],
+    "ground_truth": "PagedAttention divides transformer KV cache memory into non-contiguous physical pages, eliminating memory waste and enabling dynamic prefix sharing.",
+    "answer": "PagedAttention partitions the transformer KV cache into fixed-size physical memory blocks inspired by OS virtual memory paging, eliminating memory fragmentation and enabling dynamic memory sharing in vLLM.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 51,
+    "domain": "Operations Research & Optimization",
+    "topic": "Mixed-Integer Linear Programming & Branch-and-Cut",
+    "question": "How do Branch-and-Cut algorithms solve mixed-integer linear programming problems to global optimality?",
+    "contexts": [
+      "Branch-and-Cut integrates linear programming relaxations with cutting planes (Gomory cuts) to tighten bounds, combined with branch-and-bound tree partitioning to prove global optimality within an optimality tolerance gap."
+    ],
+    "ground_truth": "Branch-and-Cut solves MILPs by solving continuous LP relaxations, adding cutting planes to remove non-integer fractional solutions, and systematically branching on integer variables.",
+    "answer": "Branch-and-Cut solves MILPs by combining continuous LP relaxations, generating cutting planes (Gomory cuts) to tighten bounds, and exploring branch-and-bound trees to prove global optimality.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 52,
+    "domain": "Operations Research & Optimization",
+    "topic": "Simplex Duality & Shadow Prices",
+    "question": "What economic interpretation do dual variables (shadow prices) provide in linear programming?",
+    "contexts": [
+      "In linear programming, dual variables represent shadow prices, quantifying the marginal increase in optimal objective value obtained by relaxing a binding resource constraint by one unit."
+    ],
+    "ground_truth": "Dual decision variables represent shadow prices, indicating the marginal economic value of relaxing a primal resource constraint by one unit.",
+    "answer": "Dual variables in linear programming represent shadow prices that quantify the marginal rate of increase in optimal objective value when a binding resource constraint is relaxed by one unit.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 53,
+    "domain": "Operations Research & Optimization",
+    "topic": "Stochastic Inventory (s, S) Replenishment Policies",
+    "question": "Under what conditions is an (s, S) policy optimal for stochastic inventory control?",
+    "contexts": [
+      "Under fixed ordering costs and stochastic customer demand, an (s, S) policy is optimal: when inventory falls to or below reorder point s, an order is placed to restore stock to base level S."
+    ],
+    "ground_truth": "An (s, S) policy is optimal under stochastic demand and fixed setup costs, placing an order up to level S whenever inventory drops below reorder point s.",
+    "answer": "An (s, S) replenishment policy is optimal under stochastic customer demand and fixed ordering costs, placing an order to restore stock up to base level S whenever inventory falls to or below reorder point s.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 54,
+    "domain": "Operations Research & Optimization",
+    "topic": "Markov Decision Processes & Bellman Optimality",
+    "question": "How does the Bellman optimality equation characterize the value function in an MDP?",
+    "contexts": [
+      "The Bellman Optimality Equation defines V*(s) = max_a [ R(s, a) + gamma * sum_{s'} P(s'|s, a) * V*(s') ], decomposing optimal sequential decision-making into immediate reward plus discounted future value."
+    ],
+    "ground_truth": "The Bellman optimality equation expresses the value of a state as the maximum expected immediate reward plus the discounted expected value of the next state.",
+    "answer": "The Bellman Optimality Equation defines V*(s) as the maximum expected immediate reward R(s, a) plus the discounted expected future state value gamma * sum P(s'|s, a) * V*(s').",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 55,
+    "domain": "Operations Research & Optimization",
+    "topic": "Queuing Theory & M/M/c Erlang-C Sizing",
+    "question": "How is the Erlang-C formula used to size multiserver capacity in service systems?",
+    "contexts": [
+      "The Erlang-C formula calculates the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal determination of server count c."
+    ],
+    "ground_truth": "The Erlang-C formula computes the queuing probability in an M/M/c system to determine the minimum number of servers c required to satisfy service-level target waiting times.",
+    "answer": "The Erlang-C formula computes the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal capacity sizing of server count c.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 56,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "DuckDB Columnar Vectorized Execution",
+    "question": "How does DuckDB process analytical SQL queries over Parquet data with sub-second latency?",
+    "contexts": [
+      "DuckDB employs vectorized execution over 2048-tuple vector chunks using Morsel-driven parallelism and zero-copy Apache Arrow/Parquet integration, executing OLAP aggregations directly in CPU cache."
+    ],
+    "ground_truth": "DuckDB uses vectorized CPU processing in 2048-tuple Morsel chunks with zero-copy Parquet and Arrow integration to achieve low-latency analytical aggregations.",
+    "answer": "DuckDB executes analytical SQL queries by processing vectorized 2048-tuple morsels in CPU cache with zero-copy integration over columnar Apache Parquet and Apache Arrow datasets.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 57,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "LSM-Tree Storage Engine Architecture",
+    "question": "How do LSM-Trees provide high-throughput write performance in storage engines?",
+    "contexts": [
+      "LSM-Trees buffer writes in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk and using background compaction to merge levels and purge deleted keys."
+    ],
+    "ground_truth": "LSM-Trees optimize writes by appending to an in-memory MemTable and WAL, flushing sequential immutable SSTables to disk, and organizing data via multi-level compaction.",
+    "answer": "LSM-Trees achieve high write throughput by buffering mutations in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk with background multi-level compaction.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 58,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Raft Consensus vs Paxos",
+    "question": "What architectural advantages does the Raft consensus protocol offer over Multi-Paxos?",
+    "contexts": [
+      "Raft decomposes consensus into explicit subproblems: randomized leader election, strong leader log replication, and safety invariants, providing equivalent formal correctness to Paxos with superior understandability."
+    ],
+    "ground_truth": "Raft decomposes distributed consensus into leader election, log replication, and safety, making it significantly easier to understand and implement than Multi-Paxos.",
+    "answer": "Raft achieves the same formal consensus guarantees as Multi-Paxos but decomposes coordination into distinct subproblems: randomized leader election, append-only log replication, and safety invariants for higher understandability.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 59,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Kafka Exactly-Once Semantics (EOS)",
+    "question": "How does Apache Kafka guarantee exactly-once message processing across distributed partitions?",
+    "contexts": [
+      "Kafka achieves Exactly-Once Semantics (EOS) through idempotent producers with sequence number deduplication, transactional commit coordinators, and two-phase commits across topic partitions."
+    ],
+    "ground_truth": "Kafka guarantees EOS using sequence-deduplicated idempotent producers combined with atomic multi-partition transactional commit markers.",
+    "answer": "Apache Kafka achieves Exactly-Once Semantics (EOS) by combining idempotent producers with sequence number deduplication and transactional coordinators for atomic two-phase commit across topic partitions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 60,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Arrow Zero-Copy Shared Memory",
+    "question": "How does Apache Arrow eliminate serialization overhead between heterogeneous runtime environments?",
+    "contexts": [
+      "Apache Arrow defines a standardized columnar in-memory format with flat buffers, allowing shared-memory IPC transfers between Python, C++, and Rust without costly serialization or deserialization."
+    ],
+    "ground_truth": "Apache Arrow uses a language-independent columnar memory specification enabling zero-copy shared memory IPC across diverse programming runtimes.",
+    "answer": "Apache Arrow eliminates serialization overhead by defining a standardized columnar in-memory specification with flat buffers that enables zero-copy shared-memory IPC across Python, C++, and Rust.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 61,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Basel III Capital Adequacy & CET1 Buffer",
+    "question": "What are the core regulatory capital requirements mandated by the Basel III framework?",
+    "contexts": [
+      "Basel III mandates that commercial banks hold a minimum Common Equity Tier 1 (CET1) ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets (RWA), augmented by a 2.5% Capital Conservation Buffer to absorb economic downturn shocks."
+    ],
+    "ground_truth": "Basel III requires a minimum CET1 ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets, with an additional 2.5% Capital Conservation Buffer.",
+    "answer": "Under Basel III regulatory rules, commercial banks must maintain a minimum 4.5% Common Equity Tier 1 (CET1) ratio and an 8.0% Total Capital Ratio against Risk-Weighted Assets (RWA), with an added 2.5% Capital Conservation Buffer.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 62,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Expected Shortfall vs Value-at-Risk",
+    "question": "Why does Expected Shortfall satisfy coherence axioms while Value-at-Risk fails?",
+    "contexts": [
+      "Value-at-Risk (VaR) measures the quantile threshold for losses but violates the subadditivity axiom for non-elliptical distributions. In contrast, Expected Shortfall (Conditional VaR) calculates the conditional expectation of losses exceeding VaR, ensuring convexity and subadditivity."
+    ],
+    "ground_truth": "Expected Shortfall is a coherent risk measure because it is subadditive and convex, measuring average tail losses beyond VaR, whereas VaR violates subadditivity.",
+    "answer": "Expected Shortfall (Conditional VaR) satisfies coherence because it calculates the conditional expectation of losses exceeding VaR, ensuring subadditivity and convexity, whereas Value-at-Risk (VaR) violates subadditivity for non-elliptical distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 63,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Merton Structural Model & Distance to Default",
+    "question": "How does the Merton structural model formulate corporate default risk using option theory?",
+    "contexts": [
+      "The Merton model views equity as a European call option on the firm's total asset value with a strike equal to the face value of debt liabilities maturing at time T. Distance to default is computed via Black-Scholes asset volatility and default threshold."
+    ],
+    "ground_truth": "Merton models equity as a call option on total assets with strike price equal to debt nominal value, deriving distance to default from asset volatility.",
+    "answer": "The Merton structural model treats equity as a European call option on total asset value with strike equal to debt liabilities at maturity T, computing distance to default from asset volatility and Black-Scholes dynamics.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 64,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "GARCH(1,1) Volatility Forecasting",
+    "question": "What is the mathematical structure of the conditional variance equation in a GARCH(1,1) model?",
+    "contexts": [
+      "In GARCH(1,1), conditional variance sigma_t^2 is modeled as omega + alpha * epsilon_{t-1}^2 + beta * sigma_{t-1}^2, where alpha measures the ARCH shock effect and beta measures variance persistence, requiring alpha + beta < 1 for stationarity."
+    ],
+    "ground_truth": "The GARCH(1,1) conditional variance is omega plus alpha times lagged squared shock plus beta times lagged variance, requiring alpha + beta < 1 for covariance stationarity.",
+    "answer": "The GARCH(1,1) conditional variance equation combines baseline variance omega, lagged innovation shock alpha * epsilon_{t-1}^2, and lagged variance persistence beta * sigma_{t-1}^2 with constraint alpha + beta < 1.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 65,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Black-Scholes Delta & Gamma Hedging",
+    "question": "How do Delta and Gamma sensitivities guide dynamic option hedging strategies?",
+    "contexts": [
+      "Delta measures the first-order rate of change of option price with respect to underlying asset spot price, while Gamma measures the second derivative (Delta curvature), indicating how frequently delta-hedges must be rebalanced."
+    ],
+    "ground_truth": "Delta hedging offsets directional spot price risk, while Gamma measures Delta sensitivity to price movements, determining the rebalancing frequency required to maintain delta neutrality.",
+    "answer": "Delta measures the first derivative of option price with respect to spot price for directional hedging, while Gamma measures the second derivative (Delta curvature) to determine hedge rebalancing frequency.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 66,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "RAGAs Triad Quality Metrics",
+    "question": "What three core dimensions comprise the RAGAs evaluation triad for LLM retrieval pipelines?",
+    "contexts": [
+      "The RAGAs evaluation suite evaluates the RAG Triad: Faithfulness (measuring whether generated claims are grounded in context), Answer Relevance (query-response cosine similarity), and Context Recall (ground truth coverage)."
+    ],
+    "ground_truth": "The RAGAs Triad consists of Faithfulness (factual grounding in context), Answer Relevance (query alignment), and Context Recall (capture of ground truth facts).",
+    "answer": "The RAGAs evaluation framework assesses the RAG Triad: Faithfulness (verifying answers are grounded in context), Answer Relevance (measuring query-response cosine alignment), and Context Recall (measuring ground truth factual coverage).",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 67,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Reciprocal Rank Fusion (RRF)",
+    "question": "How does Reciprocal Rank Fusion combine rankings from sparse and dense search channels?",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) sums reciprocal ranks across retrieval methods: RRF(d) = sum_m [w_m / (k + rank_m(d))], using a smoothing constant k (typically 60) to merge BM25 and dense embedding lists robustly."
+    ],
+    "ground_truth": "RRF combines heterogeneous search ranks by summing weighted reciprocal ranks w_m / (k + rank_m(d)) with smoothing constant k=60.",
+    "answer": "Reciprocal Rank Fusion (RRF) combines sparse BM25 and dense vector rankings by summing weighted reciprocal ranks w_m / (k + rank_m(d)) using smoothing constant k=60 to avoid top-rank skew.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 68,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "HNSW Graph Indexing",
+    "question": "Why does Hierarchical Navigable Small World (HNSW) achieve sub-linear approximate nearest neighbor search?",
+    "contexts": [
+      "HNSW constructs a multi-layer graph where upper layers have long-range skip links and the bottom layer contains dense local links, enabling logarithmic O(log N) search complexity over vector embeddings."
+    ],
+    "ground_truth": "HNSW achieves O(log N) search by using a hierarchical skip-list multi-layer graph with coarse long-range navigation at the top and dense local exploration at the bottom.",
+    "answer": "HNSW achieves logarithmic O(log N) vector search complexity by building a multi-layer graph where upper layers provide long-range skip navigation and the bottom layer contains dense local connections.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 69,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Speculative Decoding",
+    "question": "How does speculative decoding accelerate LLM token inference without degrading output quality?",
+    "contexts": [
+      "Speculative decoding uses a small draft model to generate K candidate tokens in parallel, which are verified by the large target model in a single forward pass via rejection sampling, preserving target probability distributions."
+    ],
+    "ground_truth": "A small draft model proposes K candidate tokens that a large target model validates in one forward pass using modified rejection sampling, preserving exact output distribution.",
+    "answer": "Speculative decoding uses a fast draft model to generate K candidate tokens in parallel, which the large target model validates in a single forward pass using rejection sampling while preserving exact probability distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 70,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "PagedAttention & KV Cache Memory",
+    "question": "How does PagedAttention solve KV cache memory fragmentation in vLLM serving?",
+    "contexts": [
+      "PagedAttention partitions the continuous KV cache into fixed-size physical memory blocks similar to OS virtual memory paging, eliminating internal fragmentation and enabling dynamic memory sharing."
+    ],
+    "ground_truth": "PagedAttention divides transformer KV cache memory into non-contiguous physical pages, eliminating memory waste and enabling dynamic prefix sharing.",
+    "answer": "PagedAttention partitions the transformer KV cache into fixed-size physical memory blocks inspired by OS virtual memory paging, eliminating memory fragmentation and enabling dynamic memory sharing in vLLM.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 71,
+    "domain": "Operations Research & Optimization",
+    "topic": "Mixed-Integer Linear Programming & Branch-and-Cut",
+    "question": "How do Branch-and-Cut algorithms solve mixed-integer linear programming problems to global optimality?",
+    "contexts": [
+      "Branch-and-Cut integrates linear programming relaxations with cutting planes (Gomory cuts) to tighten bounds, combined with branch-and-bound tree partitioning to prove global optimality within an optimality tolerance gap."
+    ],
+    "ground_truth": "Branch-and-Cut solves MILPs by solving continuous LP relaxations, adding cutting planes to remove non-integer fractional solutions, and systematically branching on integer variables.",
+    "answer": "Branch-and-Cut solves MILPs by combining continuous LP relaxations, generating cutting planes (Gomory cuts) to tighten bounds, and exploring branch-and-bound trees to prove global optimality.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 72,
+    "domain": "Operations Research & Optimization",
+    "topic": "Simplex Duality & Shadow Prices",
+    "question": "What economic interpretation do dual variables (shadow prices) provide in linear programming?",
+    "contexts": [
+      "In linear programming, dual variables represent shadow prices, quantifying the marginal increase in optimal objective value obtained by relaxing a binding resource constraint by one unit."
+    ],
+    "ground_truth": "Dual decision variables represent shadow prices, indicating the marginal economic value of relaxing a primal resource constraint by one unit.",
+    "answer": "Dual variables in linear programming represent shadow prices that quantify the marginal rate of increase in optimal objective value when a binding resource constraint is relaxed by one unit.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 73,
+    "domain": "Operations Research & Optimization",
+    "topic": "Stochastic Inventory (s, S) Replenishment Policies",
+    "question": "Under what conditions is an (s, S) policy optimal for stochastic inventory control?",
+    "contexts": [
+      "Under fixed ordering costs and stochastic customer demand, an (s, S) policy is optimal: when inventory falls to or below reorder point s, an order is placed to restore stock to base level S."
+    ],
+    "ground_truth": "An (s, S) policy is optimal under stochastic demand and fixed setup costs, placing an order up to level S whenever inventory drops below reorder point s.",
+    "answer": "An (s, S) replenishment policy is optimal under stochastic customer demand and fixed ordering costs, placing an order to restore stock up to base level S whenever inventory falls to or below reorder point s.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 74,
+    "domain": "Operations Research & Optimization",
+    "topic": "Markov Decision Processes & Bellman Optimality",
+    "question": "How does the Bellman optimality equation characterize the value function in an MDP?",
+    "contexts": [
+      "The Bellman Optimality Equation defines V*(s) = max_a [ R(s, a) + gamma * sum_{s'} P(s'|s, a) * V*(s') ], decomposing optimal sequential decision-making into immediate reward plus discounted future value."
+    ],
+    "ground_truth": "The Bellman optimality equation expresses the value of a state as the maximum expected immediate reward plus the discounted expected value of the next state.",
+    "answer": "The Bellman Optimality Equation defines V*(s) as the maximum expected immediate reward R(s, a) plus the discounted expected future state value gamma * sum P(s'|s, a) * V*(s').",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 75,
+    "domain": "Operations Research & Optimization",
+    "topic": "Queuing Theory & M/M/c Erlang-C Sizing",
+    "question": "How is the Erlang-C formula used to size multiserver capacity in service systems?",
+    "contexts": [
+      "The Erlang-C formula calculates the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal determination of server count c."
+    ],
+    "ground_truth": "The Erlang-C formula computes the queuing probability in an M/M/c system to determine the minimum number of servers c required to satisfy service-level target waiting times.",
+    "answer": "The Erlang-C formula computes the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal capacity sizing of server count c.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 76,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "DuckDB Columnar Vectorized Execution",
+    "question": "How does DuckDB process analytical SQL queries over Parquet data with sub-second latency?",
+    "contexts": [
+      "DuckDB employs vectorized execution over 2048-tuple vector chunks using Morsel-driven parallelism and zero-copy Apache Arrow/Parquet integration, executing OLAP aggregations directly in CPU cache."
+    ],
+    "ground_truth": "DuckDB uses vectorized CPU processing in 2048-tuple Morsel chunks with zero-copy Parquet and Arrow integration to achieve low-latency analytical aggregations.",
+    "answer": "DuckDB executes analytical SQL queries by processing vectorized 2048-tuple morsels in CPU cache with zero-copy integration over columnar Apache Parquet and Apache Arrow datasets.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 77,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "LSM-Tree Storage Engine Architecture",
+    "question": "How do LSM-Trees provide high-throughput write performance in storage engines?",
+    "contexts": [
+      "LSM-Trees buffer writes in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk and using background compaction to merge levels and purge deleted keys."
+    ],
+    "ground_truth": "LSM-Trees optimize writes by appending to an in-memory MemTable and WAL, flushing sequential immutable SSTables to disk, and organizing data via multi-level compaction.",
+    "answer": "LSM-Trees achieve high write throughput by buffering mutations in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk with background multi-level compaction.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 78,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Raft Consensus vs Paxos",
+    "question": "What architectural advantages does the Raft consensus protocol offer over Multi-Paxos?",
+    "contexts": [
+      "Raft decomposes consensus into explicit subproblems: randomized leader election, strong leader log replication, and safety invariants, providing equivalent formal correctness to Paxos with superior understandability."
+    ],
+    "ground_truth": "Raft decomposes distributed consensus into leader election, log replication, and safety, making it significantly easier to understand and implement than Multi-Paxos.",
+    "answer": "Raft achieves the same formal consensus guarantees as Multi-Paxos but decomposes coordination into distinct subproblems: randomized leader election, append-only log replication, and safety invariants for higher understandability.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 79,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Kafka Exactly-Once Semantics (EOS)",
+    "question": "How does Apache Kafka guarantee exactly-once message processing across distributed partitions?",
+    "contexts": [
+      "Kafka achieves Exactly-Once Semantics (EOS) through idempotent producers with sequence number deduplication, transactional commit coordinators, and two-phase commits across topic partitions."
+    ],
+    "ground_truth": "Kafka guarantees EOS using sequence-deduplicated idempotent producers combined with atomic multi-partition transactional commit markers.",
+    "answer": "Apache Kafka achieves Exactly-Once Semantics (EOS) by combining idempotent producers with sequence number deduplication and transactional coordinators for atomic two-phase commit across topic partitions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 80,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Arrow Zero-Copy Shared Memory",
+    "question": "How does Apache Arrow eliminate serialization overhead between heterogeneous runtime environments?",
+    "contexts": [
+      "Apache Arrow defines a standardized columnar in-memory format with flat buffers, allowing shared-memory IPC transfers between Python, C++, and Rust without costly serialization or deserialization."
+    ],
+    "ground_truth": "Apache Arrow uses a language-independent columnar memory specification enabling zero-copy shared memory IPC across diverse programming runtimes.",
+    "answer": "Apache Arrow eliminates serialization overhead by defining a standardized columnar in-memory specification with flat buffers that enables zero-copy shared-memory IPC across Python, C++, and Rust.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 81,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Basel III Capital Adequacy & CET1 Buffer",
+    "question": "What are the core regulatory capital requirements mandated by the Basel III framework?",
+    "contexts": [
+      "Basel III mandates that commercial banks hold a minimum Common Equity Tier 1 (CET1) ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets (RWA), augmented by a 2.5% Capital Conservation Buffer to absorb economic downturn shocks."
+    ],
+    "ground_truth": "Basel III requires a minimum CET1 ratio of 4.5% and a Total Capital Ratio of 8.0% against Risk-Weighted Assets, with an additional 2.5% Capital Conservation Buffer.",
+    "answer": "Under Basel III regulatory rules, commercial banks must maintain a minimum 4.5% Common Equity Tier 1 (CET1) ratio and an 8.0% Total Capital Ratio against Risk-Weighted Assets (RWA), with an added 2.5% Capital Conservation Buffer.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 82,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Expected Shortfall vs Value-at-Risk",
+    "question": "Why does Expected Shortfall satisfy coherence axioms while Value-at-Risk fails?",
+    "contexts": [
+      "Value-at-Risk (VaR) measures the quantile threshold for losses but violates the subadditivity axiom for non-elliptical distributions. In contrast, Expected Shortfall (Conditional VaR) calculates the conditional expectation of losses exceeding VaR, ensuring convexity and subadditivity."
+    ],
+    "ground_truth": "Expected Shortfall is a coherent risk measure because it is subadditive and convex, measuring average tail losses beyond VaR, whereas VaR violates subadditivity.",
+    "answer": "Expected Shortfall (Conditional VaR) satisfies coherence because it calculates the conditional expectation of losses exceeding VaR, ensuring subadditivity and convexity, whereas Value-at-Risk (VaR) violates subadditivity for non-elliptical distributions.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 83,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Merton Structural Model & Distance to Default",
+    "question": "How does the Merton structural model formulate corporate default risk using option theory?",
+    "contexts": [
+      "The Merton model views equity as a European call option on the firm's total asset value with a strike equal to the face value of debt liabilities maturing at time T. Distance to default is computed via Black-Scholes asset volatility and default threshold."
+    ],
+    "ground_truth": "Merton models equity as a call option on total assets with strike price equal to debt nominal value, deriving distance to default from asset volatility.",
+    "answer": "The Merton structural model treats equity as a European call option on total asset value with strike equal to debt liabilities at maturity T, computing distance to default from asset volatility and Black-Scholes dynamics.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 84,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "GARCH(1,1) Volatility Forecasting",
+    "question": "What is the mathematical structure of the conditional variance equation in a GARCH(1,1) model?",
+    "contexts": [
+      "In GARCH(1,1), conditional variance sigma_t^2 is modeled as omega + alpha * epsilon_{t-1}^2 + beta * sigma_{t-1}^2, where alpha measures the ARCH shock effect and beta measures variance persistence, requiring alpha + beta < 1 for stationarity."
+    ],
+    "ground_truth": "The GARCH(1,1) conditional variance is omega plus alpha times lagged squared shock plus beta times lagged variance, requiring alpha + beta < 1 for covariance stationarity.",
+    "answer": "The GARCH(1,1) conditional variance equation combines baseline variance omega, lagged innovation shock alpha * epsilon_{t-1}^2, and lagged variance persistence beta * sigma_{t-1}^2 with constraint alpha + beta < 1.",
+    "is_faithful_ground_truth": true
+  },
+  {
+    "sample_id": 85,
+    "domain": "Quantitative Finance & Risk",
+    "topic": "Black-Scholes Delta & Gamma Hedging",
+    "question": "How do Delta and Gamma sensitivities guide dynamic option hedging strategies?",
+    "contexts": [
+      "Delta measures the first-order rate of change of option price with respect to underlying asset spot price, while Gamma measures the second derivative (Delta curvature), indicating how frequently delta-hedges must be rebalanced."
+    ],
+    "ground_truth": "Delta hedging offsets directional spot price risk, while Gamma measures Delta sensitivity to price movements, determining the rebalancing frequency required to maintain delta neutrality.",
+    "answer": "Delta sets option strike prices to zero, and Gamma eliminates all inflation risk across the economy.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 86,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "RAGAs Triad Quality Metrics",
+    "question": "What three core dimensions comprise the RAGAs evaluation triad for LLM retrieval pipelines?",
+    "contexts": [
+      "The RAGAs evaluation suite evaluates the RAG Triad: Faithfulness (measuring whether generated claims are grounded in context), Answer Relevance (query-response cosine similarity), and Context Recall (ground truth coverage)."
+    ],
+    "ground_truth": "The RAGAs Triad consists of Faithfulness (factual grounding in context), Answer Relevance (query alignment), and Context Recall (capture of ground truth facts).",
+    "answer": "The RAGAs Triad measures computer cooling fan speeds, memory bus clock cycles, and HTTP request count.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 87,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Reciprocal Rank Fusion (RRF)",
+    "question": "How does Reciprocal Rank Fusion combine rankings from sparse and dense search channels?",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) sums reciprocal ranks across retrieval methods: RRF(d) = sum_m [w_m / (k + rank_m(d))], using a smoothing constant k (typically 60) to merge BM25 and dense embedding lists robustly."
+    ],
+    "ground_truth": "RRF combines heterogeneous search ranks by summing weighted reciprocal ranks w_m / (k + rank_m(d)) with smoothing constant k=60.",
+    "answer": "RRF simply concatenates all document texts together into one single giant file without ranking scores.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 88,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "HNSW Graph Indexing",
+    "question": "Why does Hierarchical Navigable Small World (HNSW) achieve sub-linear approximate nearest neighbor search?",
+    "contexts": [
+      "HNSW constructs a multi-layer graph where upper layers have long-range skip links and the bottom layer contains dense local links, enabling logarithmic O(log N) search complexity over vector embeddings."
+    ],
+    "ground_truth": "HNSW achieves O(log N) search by using a hierarchical skip-list multi-layer graph with coarse long-range navigation at the top and dense local exploration at the bottom.",
+    "answer": "HNSW performs an exhaustive linear brute-force scan over every unindexed vector in disk storage.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 89,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "Speculative Decoding",
+    "question": "How does speculative decoding accelerate LLM token inference without degrading output quality?",
+    "contexts": [
+      "Speculative decoding uses a small draft model to generate K candidate tokens in parallel, which are verified by the large target model in a single forward pass via rejection sampling, preserving target probability distributions."
+    ],
+    "ground_truth": "A small draft model proposes K candidate tokens that a large target model validates in one forward pass using modified rejection sampling, preserving exact output distribution.",
+    "answer": "Speculative decoding deletes half of the transformer attention heads permanently from the neural network.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 90,
+    "domain": "GenAI, LLMOps & Retrieval Systems",
+    "topic": "PagedAttention & KV Cache Memory",
+    "question": "How does PagedAttention solve KV cache memory fragmentation in vLLM serving?",
+    "contexts": [
+      "PagedAttention partitions the continuous KV cache into fixed-size physical memory blocks similar to OS virtual memory paging, eliminating internal fragmentation and enabling dynamic memory sharing."
+    ],
+    "ground_truth": "PagedAttention divides transformer KV cache memory into non-contiguous physical pages, eliminating memory waste and enabling dynamic prefix sharing.",
+    "answer": "PagedAttention moves all KV caches to magnetic tape storage to avoid using GPU RAM.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 91,
+    "domain": "Operations Research & Optimization",
+    "topic": "Mixed-Integer Linear Programming & Branch-and-Cut",
+    "question": "How do Branch-and-Cut algorithms solve mixed-integer linear programming problems to global optimality?",
+    "contexts": [
+      "Branch-and-Cut integrates linear programming relaxations with cutting planes (Gomory cuts) to tighten bounds, combined with branch-and-bound tree partitioning to prove global optimality within an optimality tolerance gap."
+    ],
+    "ground_truth": "Branch-and-Cut solves MILPs by solving continuous LP relaxations, adding cutting planes to remove non-integer fractional solutions, and systematically branching on integer variables.",
+    "answer": "Branch-and-Cut solves MILPs by randomly guessing numbers until all constraints are satisfied by pure chance.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 92,
+    "domain": "Operations Research & Optimization",
+    "topic": "Simplex Duality & Shadow Prices",
+    "question": "What economic interpretation do dual variables (shadow prices) provide in linear programming?",
+    "contexts": [
+      "In linear programming, dual variables represent shadow prices, quantifying the marginal increase in optimal objective value obtained by relaxing a binding resource constraint by one unit."
+    ],
+    "ground_truth": "Dual decision variables represent shadow prices, indicating the marginal economic value of relaxing a primal resource constraint by one unit.",
+    "answer": "Dual variables calculate personal income tax rates and have no connection to linear programming constraints.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 93,
+    "domain": "Operations Research & Optimization",
+    "topic": "Stochastic Inventory (s, S) Replenishment Policies",
+    "question": "Under what conditions is an (s, S) policy optimal for stochastic inventory control?",
+    "contexts": [
+      "Under fixed ordering costs and stochastic customer demand, an (s, S) policy is optimal: when inventory falls to or below reorder point s, an order is placed to restore stock to base level S."
+    ],
+    "ground_truth": "An (s, S) policy is optimal under stochastic demand and fixed setup costs, placing an order up to level S whenever inventory drops below reorder point s.",
+    "answer": "An (s, S) policy orders 500 units every Wednesday regardless of stock levels or customer demand.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 94,
+    "domain": "Operations Research & Optimization",
+    "topic": "Markov Decision Processes & Bellman Optimality",
+    "question": "How does the Bellman optimality equation characterize the value function in an MDP?",
+    "contexts": [
+      "The Bellman Optimality Equation defines V*(s) = max_a [ R(s, a) + gamma * sum_{s'} P(s'|s, a) * V*(s') ], decomposing optimal sequential decision-making into immediate reward plus discounted future value."
+    ],
+    "ground_truth": "The Bellman optimality equation expresses the value of a state as the maximum expected immediate reward plus the discounted expected value of the next state.",
+    "answer": "The Bellman equation asserts that future rewards should be ignored and only immediate gains matter.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 95,
+    "domain": "Operations Research & Optimization",
+    "topic": "Queuing Theory & M/M/c Erlang-C Sizing",
+    "question": "How is the Erlang-C formula used to size multiserver capacity in service systems?",
+    "contexts": [
+      "The Erlang-C formula calculates the probability that an arriving customer must wait in an M/M/c queue with Poisson arrivals and exponential service times, enabling optimal determination of server count c."
+    ],
+    "ground_truth": "The Erlang-C formula computes the queuing probability in an M/M/c system to determine the minimum number of servers c required to satisfy service-level target waiting times.",
+    "answer": "The Erlang-C formula calculates the speed of light in vacuum queues.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 96,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "DuckDB Columnar Vectorized Execution",
+    "question": "How does DuckDB process analytical SQL queries over Parquet data with sub-second latency?",
+    "contexts": [
+      "DuckDB employs vectorized execution over 2048-tuple vector chunks using Morsel-driven parallelism and zero-copy Apache Arrow/Parquet integration, executing OLAP aggregations directly in CPU cache."
+    ],
+    "ground_truth": "DuckDB uses vectorized CPU processing in 2048-tuple Morsel chunks with zero-copy Parquet and Arrow integration to achieve low-latency analytical aggregations.",
+    "answer": "DuckDB converts SQL queries into PDF files and parses them with optical character recognition.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 97,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "LSM-Tree Storage Engine Architecture",
+    "question": "How do LSM-Trees provide high-throughput write performance in storage engines?",
+    "contexts": [
+      "LSM-Trees buffer writes in an in-memory MemTable backed by a sequential Write-Ahead Log (WAL), flushing immutable SSTables to disk and using background compaction to merge levels and purge deleted keys."
+    ],
+    "ground_truth": "LSM-Trees optimize writes by appending to an in-memory MemTable and WAL, flushing sequential immutable SSTables to disk, and organizing data via multi-level compaction.",
+    "answer": "LSM-Trees execute random unbuffered disk writes for every individual byte without Write-Ahead Logs.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 98,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Raft Consensus vs Paxos",
+    "question": "What architectural advantages does the Raft consensus protocol offer over Multi-Paxos?",
+    "contexts": [
+      "Raft decomposes consensus into explicit subproblems: randomized leader election, strong leader log replication, and safety invariants, providing equivalent formal correctness to Paxos with superior understandability."
+    ],
+    "ground_truth": "Raft decomposes distributed consensus into leader election, log replication, and safety, making it significantly easier to understand and implement than Multi-Paxos.",
+    "answer": "Raft consensus requires a single centralized database server that cannot support distributed nodes.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 99,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Kafka Exactly-Once Semantics (EOS)",
+    "question": "How does Apache Kafka guarantee exactly-once message processing across distributed partitions?",
+    "contexts": [
+      "Kafka achieves Exactly-Once Semantics (EOS) through idempotent producers with sequence number deduplication, transactional commit coordinators, and two-phase commits across topic partitions."
+    ],
+    "ground_truth": "Kafka guarantees EOS using sequence-deduplicated idempotent producers combined with atomic multi-partition transactional commit markers.",
+    "answer": "Kafka guarantees EOS by dropping all duplicate messages randomly without sequence numbers.",
+    "is_faithful_ground_truth": false
+  },
+  {
+    "sample_id": 100,
+    "domain": "Data Engineering & Vectorized Systems",
+    "topic": "Apache Arrow Zero-Copy Shared Memory",
+    "question": "How does Apache Arrow eliminate serialization overhead between heterogeneous runtime environments?",
+    "contexts": [
+      "Apache Arrow defines a standardized columnar in-memory format with flat buffers, allowing shared-memory IPC transfers between Python, C++, and Rust without costly serialization or deserialization."
+    ],
+    "ground_truth": "Apache Arrow uses a language-independent columnar memory specification enabling zero-copy shared memory IPC across diverse programming runtimes.",
+    "answer": "Apache Arrow converts all data into CSV files before transferring them over HTTP.",
+    "is_faithful_ground_truth": false
+  }
+]
