@@ -1,12 +1,9 @@
 """
-NVIDIA NeMo Guardrails & Enterprise Website Assistant Engine.
-
-Integrates:
-1. NVIDIA NeMo Colang Programmable Rails (`config/rails.co` & `config/config.yml`)
-2. Input Rails: Multi-vector Prompt Injection & Off-Domain Query Interception
-3. Dialog Rails: Domain-bounded retrieval and flow control
-4. Output Rails: Automated Enterprise PII Redaction & Secret Key Masking
-5. LLMOps Evaluation: Mathematical RAGAs Faithfulness (0.91) Verification
+Deterministic Security Guardrails & Enterprise Website Assistant Engine.
+Implements NeMo Guardrails-inspired architectural rails:
+1. Input Rails: Prompt injection and out-of-domain interception via deterministic regex patterns
+2. Output Rails: Multi-pattern enterprise PII redaction (SSN, credit cards, internal emails, API keys)
+3. Colang Companion: Ships config/rails.co definitions for enterprise NeMo deployment
 """
 
 import os
@@ -16,7 +13,7 @@ from typing import Dict, Any, List, Optional
 
 class NVIDIANeMoWebsiteAssistant:
     """
-    Website Assistant with native NVIDIA NeMo Colang programmable security guardrails.
+    Website Assistant with deterministic input jailbreak and output PII sanitization guardrails.
     """
 
     def __init__(self, indexer, config_dir: Optional[str] = None):
@@ -27,7 +24,7 @@ class NVIDIANeMoWebsiteAssistant:
 
         self.colang_rules = self._load_colang_definitions()
         
-        # 1. NeMo Input Rail Injection Rules (Compiled from rails.co)
+        # Input Guardrail Injection Rules
         self.injection_patterns = [
             r"ignore\s+(all\s+)?(previous|prior)\s+instructions",
             r"system\s+prompt\s+override",
@@ -38,7 +35,7 @@ class NVIDIANeMoWebsiteAssistant:
             r"print\s+(your\s+)?(initial|system)\s+prompt"
         ]
 
-        # 2. NeMo Output Rail PII & Secret Redaction Rules
+        # Output Guardrail PII & Secret Redaction Rules
         self.pii_rules = [
             ("SSN", r"\b\d{3}-\d{2}-\d{4}\b"),
             ("CREDIT_CARD", r"\b(?:\d{4}[ -]?){3}\d{4}\b"),
@@ -47,10 +44,10 @@ class NVIDIANeMoWebsiteAssistant:
         ]
 
     def _load_colang_definitions(self) -> Dict[str, Any]:
-        """Loads and parses Colang (.co) and YAML (.yml) rules."""
+        """Loads Colang (.co) and YAML (.yml) definition files from config directory."""
         colang_path = os.path.join(self.config_dir, "rails.co")
         config_path = os.path.join(self.config_dir, "config.yml")
-        rules = {"colang_loaded": False, "config_loaded": False, "flows": []}
+        rules = {"colang_loaded": False, "config_loaded": False}
 
         if os.path.exists(colang_path):
             with open(colang_path, 'r', encoding='utf-8') as f:
@@ -66,15 +63,15 @@ class NVIDIANeMoWebsiteAssistant:
 
     def validate_input_rail(self, query: str) -> Dict[str, Any]:
         """
-        NeMo Input Guardrail: Scans for adversarial jailbreaks and malicious prompts based on Colang rules.
+        Input Guardrail: Intercepts prompt injections and off-domain queries.
         """
         for pattern in self.injection_patterns:
             if re.search(pattern, query, re.IGNORECASE):
                 return {
                     "passed": False,
-                    "rail_name": "NeMo_Input_Jailbreak_Shield (Colang: check jailbreak)",
+                    "rail_name": "Input_Jailbreak_Shield",
                     "reason": f"Adversarial prompt injection pattern detected: {pattern}",
-                    "intercept_message": "[NVIDIA NeMo GUARDRAIL BLOCKED]: Request intercepted. Prompt injection or system override detected."
+                    "intercept_message": "[GUARDRAIL BLOCKED]: Request intercepted. Prompt injection or system override detected."
                 }
 
         # Check off-topic query
@@ -83,16 +80,16 @@ class NVIDIANeMoWebsiteAssistant:
             if re.search(pattern, query, re.IGNORECASE):
                 return {
                     "passed": False,
-                    "rail_name": "NeMo_Input_Domain_Shield (Colang: check off_topic)",
+                    "rail_name": "Input_Domain_Shield",
                     "reason": "Query is outside enterprise documentation domain",
-                    "intercept_message": "[NVIDIA NeMo GUARDRAIL BLOCKED]: Query falls outside enterprise documentation scope. Please ask questions related to platform architecture."
+                    "intercept_message": "[GUARDRAIL BLOCKED]: Query falls outside enterprise documentation scope. Please ask questions related to platform architecture."
                 }
 
-        return {"passed": True, "rail_name": "NeMo_Input_Jailbreak_Shield", "reason": None}
+        return {"passed": True, "rail_name": "Input_Jailbreak_Shield", "reason": None}
 
     def sanitize_output_rail(self, response_text: str) -> Dict[str, Any]:
         """
-        NeMo Output Guardrail: Redacts sensitive PII, passwords, and secret keys.
+        Output Guardrail: Identifies and redacts sensitive PII, emails, and API keys.
         """
         sanitized = response_text
         redactions = []
@@ -104,7 +101,7 @@ class NVIDIANeMoWebsiteAssistant:
                 sanitized = re.sub(pattern, f"[REDACTED_{pii_type}]", sanitized)
 
         return {
-            "output_rail_passed": True,
+            "output_rail_sanitized": True,
             "sanitized_response": sanitized,
             "num_redactions": len(redactions),
             "redacted_items": redactions
@@ -112,9 +109,9 @@ class NVIDIANeMoWebsiteAssistant:
 
     def answer_query(self, user_query: str, top_k: int = 2) -> Dict[str, Any]:
         """
-        End-to-End Execution Flow with Colang Input Rails, Hybrid Retrieval, and Output Rails.
+        Executes Input Rails -> Hybrid BM25 Search -> Grounded Synthesis -> Output Sanitization.
         """
-        # 1. Execute NeMo Input Rails
+        # 1. Execute Input Rails
         input_rail_res = self.validate_input_rail(user_query)
         if not input_rail_res["passed"]:
             return {
@@ -126,30 +123,30 @@ class NVIDIANeMoWebsiteAssistant:
                 "telemetry": {
                     "input_rail_passed": False,
                     "output_rail_passed": None,
-                    "colang_enforced": True
+                    "regex_guardrails_enforced": True,
+                    "colang_config_loaded": bool(self.colang_rules.get("colang_loaded", False))
                 }
             }
 
-        # 2. Hybrid Retrieval (BM25 + Dense Semantic RRF)
+        # 2. Hybrid Retrieval (BM25 + Token Overlap RRF)
         retrieved_docs = self.indexer.hybrid_search(user_query, top_k=top_k)
 
-        # 3. Grounded Synthesis
+        # 3. Grounded Extractive Template Synthesis
         if not retrieved_docs:
             raw_response = "I could not find relevant documentation on the platform to answer your question."
         else:
-            context_passages = "\n".join([f"- {doc['text']}" for doc in retrieved_docs])
             raw_response = (
                 f"Based on the official website documentation:\n"
                 f"{retrieved_docs[0]['text']}\n\n"
                 f"For further details, refer to {retrieved_docs[0]['source_url']}."
             )
 
-        # 4. Execute NeMo Output Rails (PII & Secret Sanitization)
+        # 4. Execute Output Rails (PII Sanitization)
         output_rail_res = self.sanitize_output_rail(raw_response)
 
         return {
             "user_query": user_query,
-            "guardrail_status": "PASSED_ALL_NEMO_RAILS",
+            "guardrail_status": "PASSED_ALL_GUARDRAILS",
             "rail_intercepted": None,
             "final_answer": output_rail_res["sanitized_response"],
             "retrieved_passages": retrieved_docs,
@@ -157,6 +154,7 @@ class NVIDIANeMoWebsiteAssistant:
                 "input_rail_passed": True,
                 "output_rail_passed": True,
                 "pii_redacted_count": output_rail_res["num_redactions"],
-                "colang_enforced": True
+                "regex_guardrails_enforced": True,
+                "colang_config_loaded": bool(self.colang_rules.get("colang_loaded", False))
             }
         }

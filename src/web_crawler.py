@@ -1,7 +1,7 @@
 """
-Enterprise Web Crawler & DOM Recursive Document Chunking Engine.
-Crawls website URLs, parses HTML DOM trees via BeautifulSoup, strips noise (nav, ads, scripts),
-and chunks structured web content into semantic retrieval passages.
+Enterprise Web Content Extractor & DOM Chunking Module.
+Parses HTML structures, strips boilerplate tags (scripts, styles, nav, footer),
+and chunks extracted text into overlapping retrieval passages.
 """
 
 import re
@@ -10,16 +10,16 @@ from typing import List, Dict, Any
 
 class WebCrawlerAndChunker:
     """
-    Automated web scraper and recursive document chunker for Website RAG assistants.
+    HTML DOM text extraction and fixed-window character chunking engine.
     """
 
-    def __init__(self, chunk_size=500, chunk_overlap=100):
+    def __init__(self, chunk_size=400, chunk_overlap=80):
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
 
     def crawl_and_extract_text(self, html_or_url_content: str, source_url: str = "https://docs.enterprise-ai.org") -> Dict[str, Any]:
         """
-        Parses HTML DOM, removes boilerplate/script tags, and extracts clean markdown/text.
+        Strips HTML tags and extracts clean text passages.
         """
         # Strip script, style, and navigation tags
         clean_text = re.sub(r'<script.*?>.*?</script>', '', html_or_url_content, flags=re.DOTALL | re.IGNORECASE)
@@ -42,7 +42,7 @@ class WebCrawlerAndChunker:
 
     def _recursive_chunk(self, text: str, source_url: str) -> List[Dict[str, Any]]:
         """
-        Recursive character text splitting preserving sentence and paragraph boundaries.
+        Splits text into overlapping word windows.
         """
         words = text.split()
         chunks = []

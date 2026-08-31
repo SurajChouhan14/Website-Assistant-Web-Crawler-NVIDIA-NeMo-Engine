@@ -1,6 +1,6 @@
 """
-Hybrid Vector Retrieval & Cohere Neural Re-Ranker Module.
-Combines Sparse BM25 lexical keyword matching with Dense Semantic Cosine Vector search and Neural Cross-Encoder re-ranking.
+Hybrid Search Indexer with Okapi BM25 & Token Overlap Reciprocal Rank Fusion (RRF).
+Combines Sparse BM25 lexical keyword matching with token overlap scoring.
 """
 
 import math
@@ -10,7 +10,7 @@ from typing import List, Dict, Any
 
 class HybridVectorIndexer:
     """
-    Hybrid Vector and Lexical Search Index with Reciprocal Rank Fusion (RRF).
+    Hybrid BM25 and token-overlap search index with Reciprocal Rank Fusion (RRF).
     """
 
     def __init__(self, chunks: List[Dict[str, Any]]):
@@ -47,7 +47,6 @@ class HybridVectorIndexer:
         for token in query_tokens:
             if token in tf_dict:
                 tf = tf_dict[token]
-                # Document frequency
                 df = sum(1 for d in self.doc_term_freqs if token in d)
                 idf = math.log((N - df + 0.5) / (df + 0.5) + 1.0)
                 numerator = tf * (k1 + 1.0)
@@ -58,12 +57,12 @@ class HybridVectorIndexer:
 
     def hybrid_search(self, query: str, top_k: int = 3, rrf_k: int = 60) -> List[Dict[str, Any]]:
         """
-        Executes hybrid BM25 + dense semantic search with Reciprocal Rank Fusion (RRF).
+        Executes hybrid BM25 + token overlap search with Reciprocal Rank Fusion (RRF).
         """
         query_tokens = self._tokenize(query)
         bm25_scores = [self._bm25_score(query_tokens, i) for i in range(len(self.corpus))]
         
-        # Dense semantic similarity approximation (Jaccard + length-weighted cosine)
+        # Token overlap channel (Jaccard similarity proxy)
         dense_scores = []
         for doc in self.corpus:
             d_tokens = set(self._tokenize(doc))
