@@ -32,6 +32,8 @@ class TestNVIDIANeMoWebsiteAssistant(unittest.TestCase):
         """Verify text extractor strips HTML tags and produces chunks."""
         self.assertGreater(self.crawl_res["raw_character_count"], 200)
         self.assertGreaterEqual(self.crawl_res["num_chunks_extracted"], 1)
+        self.assertIn("discovered_links", self.crawl_res)
+        self.assertIsInstance(self.crawl_res["discovered_links"], list)
 
     def test_2_bm25_hybrid_retrieval(self):
         """Verify Okapi BM25 search returns relevant passages with RRF scores."""
